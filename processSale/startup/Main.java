@@ -14,6 +14,9 @@ public class Main {
 
 		Controller contr = new Controller(creator, printer);
 
+		View view = new View(contr);
+
+		view.runProgram();
 	}
 
 }

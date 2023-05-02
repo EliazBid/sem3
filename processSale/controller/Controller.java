@@ -8,6 +8,7 @@ import processSale.model.CashRegister;
 import processSale.model.Receipt;
 import processSale.model.CashPayment;
 import processSale.integration.Printer;
+import processSale.integration.RegistryCreator;
 import processSale.model.Discount;
 import processSale.model.Amount;
 
@@ -31,12 +32,15 @@ public class Controller {
 
 	private Discount discount;
 
-	public Controller Controller() {
-		return null;
+	RegistryCreator creator;
+
+	public Controller(RegistryCreator creator, Printer printer) {
+		this.creator = creator;
+		this.printer = printer;
 	}
 
 	public void startSale() {
-
+		sale = new Sale();
 	}
 
 	public void scanItem() {

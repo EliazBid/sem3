@@ -1,11 +1,11 @@
 package processSale.model;
 
-import processSale.java.time.LocalTime;
+import java.time.LocalTime;
 import processSale.integration.ItemDTO;
 
 public class Sale {
 
-	private java.time.LocalTime saleTime;
+	private LocalTime saleTime;
 
 	private Amount runningTotal;
 
@@ -15,12 +15,13 @@ public class Sale {
 
 	private Receipt receipt;
 
-	public Sale Sale() {
-		return null;
+	public Sale() {
+		setTimeOfSale();
 	}
 
 	private void setTimeOfSale() {
-
+		saleTime = LocalTime.now();
+		receipt = new Receipt();
 	}
 
 	public void addItem(ItemDTO itemDTO) {

@@ -12,8 +12,8 @@ public class Receipt {
 
 	private Amount change;
 
-	public Receipt Receipt() {
-		return null;
+	public Receipt() {
+
 	}
 
 	public void addToReceipt(Sale sale) {

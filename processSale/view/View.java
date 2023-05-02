@@ -4,10 +4,14 @@ import processSale.controller.Controller;
 
 public class View {
 
-	private Controller controller;
+	private Controller contr;
 
-	public View View(Controller contr) {
-		return null;
+	public View(Controller contr) {
+		this.contr = contr;
 	}
 
+	public void runProgram(){
+		contr.startSale();
+		System.out.println("New sale started!");
+	}
 }
