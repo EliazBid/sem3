@@ -62,8 +62,11 @@ public class Sale {
 		return null;
 	}
 
-	private void checkIfDuplicates(ItemDTO founItemDTO) {
-		
+	private void checkIfDuplicates(ItemDTO ItemDTO) {
+		if (itemList.contains(ItemDTO)) {
+			int index = itemList.indexOf(ItemDTO);
+			itemList.get(index).increaseQuantity();
+		}
 	}
 
 	public void pay(CashPayment toPay) {

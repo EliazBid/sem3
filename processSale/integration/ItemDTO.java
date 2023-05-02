@@ -31,7 +31,7 @@ public class ItemDTO {
 	/**
 	 * Increases the quantity of the item.
 	 */
-	public void increasteQuantity() {
+	public void increaseQuantity() {
 		quantity++;
 	}
 
