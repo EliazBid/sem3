@@ -9,6 +9,7 @@ import processSale.model.Receipt;
 import processSale.model.CashPayment;
 import processSale.integration.Printer;
 import processSale.integration.RegistryCreator;
+import processSale.integration.ItemDTO;
 import processSale.model.Discount;
 import processSale.model.Amount;
 
@@ -43,20 +44,19 @@ public class Controller {
 		sale = new Sale();
 	}
 
-	public void scanItem() {
-
+	public void scanItem(ItemDTO searchedItem) {
+		if (searchedItem != null) {
+			sale.addItem(searchedItem);
+		}
 	}
 
-	public void enterQuantity() {
 
-	}
-
+	/**
+	 * Ends the sale. The total price is calculated and returned.
+	 */
 	public void endSale() {
-
-	}
-
-	public void discountRequest(int socialSecurityNumber) {
-
+		Amount runningTotal = sale.getRunningTotal();
+		System.out.println("The total price is: " + runningTotal);
 	}
 
 	public void enterAmountPaid(Amount paidAmount) {
