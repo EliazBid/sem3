@@ -41,8 +41,12 @@ public class Sale {
 
 	}
 
+	/**
+	 * Returns the running total of the sale.
+	 * 
+	 */
 	public Amount getRunningTotal() {
-		return null;
+		return runningTotal;
 	}
 
 	public Amount getChange() {
