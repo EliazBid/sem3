@@ -33,7 +33,7 @@ public class Controller {
 
 	private Discount discount;
 
-	RegistryCreator creator;
+	private RegistryCreator creator;
 
 	public Controller(RegistryCreator creator, Printer printer) {
 		this.creator = creator;
