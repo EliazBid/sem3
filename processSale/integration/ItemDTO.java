@@ -16,8 +16,11 @@ public class ItemDTO {
 
 	private int vatRate;
 
-	public ItemDTO ItemDTO(int itemIdentifier, int quantity, Amount price, String name, boolean validIdentifier) {
-		return null;
+	public ItemDTO(int itemIdentifier, int quantity, Amount price, String name, boolean validIdentifier) {
+		
+	}
+	public void increasteQuantity() {
+		quantity++;
 	}
 
 	public int getIdentifier() {

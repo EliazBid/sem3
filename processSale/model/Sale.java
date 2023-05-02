@@ -1,5 +1,6 @@
 package processSale.model;
 
+import java.util.ArrayList;
 import java.time.LocalTime;
 import processSale.integration.ItemDTO;
 
@@ -11,7 +12,7 @@ public class Sale {
 
 	private Amount change;
 
-	private ItemDTO itemList;
+	private ArrayList<ItemDTO> itemList;
 
 	private Receipt receipt;
 
@@ -34,7 +35,7 @@ public class Sale {
 	 */
 	public void addItem(ItemDTO itemDTO) {
 		checkIfDuplicates(itemDTO);
-		itemList = itemDTO;
+		itemList.add(0, itemDTO);
 	}
 
 	public void addItem(int quantity, ItemDTO itemDTO) {
