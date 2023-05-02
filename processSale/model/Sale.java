@@ -15,17 +15,26 @@ public class Sale {
 
 	private Receipt receipt;
 
+	/**
+	 * Creates a new instance of a sale. The time of the sale is set to the current time. A new receipt is created.
+	 */
 	public Sale() {
 		setTimeOfSale();
-	}
-
-	private void setTimeOfSale() {
-		saleTime = LocalTime.now();
 		receipt = new Receipt();
 	}
-
+	/**
+	 * Sets the time of the sale to the current time.
+	 */
+	private void setTimeOfSale() {
+		saleTime = LocalTime.now();
+	}
+	/**
+	 * Adds an item to the sale. If the item is already in the sale, the quantity is increased by one.
+	 * @param itemDTO	The item to be added to the sale.
+	 */
 	public void addItem(ItemDTO itemDTO) {
-
+		checkIfDuplicates(itemDTO);
+		itemList = itemDTO;
 	}
 
 	public void addItem(int quantity, ItemDTO itemDTO) {
@@ -48,8 +57,8 @@ public class Sale {
 		return null;
 	}
 
-	private void checkIfDuplicates() {
-
+	private void checkIfDuplicates(ItemDTO founItemDTO) {
+		
 	}
 
 	public void pay(CashPayment toPay) {
