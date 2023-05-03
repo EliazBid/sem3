@@ -57,7 +57,7 @@ public class Sale {
 	public ItemDTO getItemList() {
 		return null;
 	}
-
+	
 	public Amount applyDiscountToRunningTotal(Discount discount) {
 		return null;
 	}

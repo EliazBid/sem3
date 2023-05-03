@@ -44,10 +44,10 @@ public class Controller {
 		sale = new Sale();
 	}
 
-	public void scanItem(ItemDTO searchedItem) {
-		if (searchedItem != null) {
-			sale.addItem(searchedItem);
-		}
+	//look in external inventory system for matching itemidentifier, if found, add ItemDTO to sale
+	public void scanItem(int itemIdentifier) {	
+		ItemDTO foundItem = externalInventorySystem.findItem(itemIdentifier);
+		sale.addItem(foundItem);
 	}
 
 

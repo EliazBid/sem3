@@ -37,7 +37,7 @@ public class ItemDTO {
 	}
 
 	public int getIdentifier() {
-		return 0;
+		return itemIdentifier;
 	}
 
 	public int getQuantity() {

@@ -5,13 +5,26 @@ import java.util.ArrayList;
 
 public class ExternalInventorySystem {
 
+	private ArrayList<ItemDTO> inventory;
+
 	public ExternalInventorySystem() {
-		ArrayList<ItemDTO> inventory = createInventory();
+		this.inventory = createInventory();
 	}
 
-	public ItemDTO findItem(ItemDTO searchedItem) {
+	/**
+	 * Finds an item in the inventory.
+	 * @param itemIdentifier The identifier of the item.
+	 */
+	public ItemDTO findItem(int itemIdentifier) {
+		for (ItemDTO item : inventory) {
+			if (item.getIdentifier() == itemIdentifier) {
+				return item;
+			}
+		}
 		return null;
 	}
+
+
 
 	public void updateInventory() {
 
