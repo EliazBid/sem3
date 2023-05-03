@@ -1,5 +1,7 @@
 package processSale.integration;
 
+import processSale.model.Sale;
+
 public class ExternalAccountingSystem {
 	
 	 /**
