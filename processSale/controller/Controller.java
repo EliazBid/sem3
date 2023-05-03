@@ -34,6 +34,8 @@ public class Controller {
 	private Discount discount;
 
 	private RegistryCreator creator;
+
+	private Amount change;
 	
 	/**
      	* Creates an instance of the controller where the references to externals systems are saved.
@@ -68,7 +70,14 @@ public class Controller {
 	}
 
 	public void enterAmountPaid(Amount paidAmount) {
-
+		
+		CashPayment toPay = new CashPayment(paidAmount);
+		sale.pay(toPay,sale);
+		externalAccountingSystem.updateAccountingSystem();
+		externalInventorySystem.updateInventory();
+		cashRegister.addMoney(toPay);
+		receipt = sale.getReceipt(sale,printer);
+		change = sale.getChange();
 	}
 
 }

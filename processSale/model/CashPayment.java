@@ -2,11 +2,13 @@ package processSale.model;
 
 public class CashPayment {
 
-	public CashPayment CashPayment() {
-		return null;
+	private Amount amount;
+
+	public CashPayment (Amount PaidAmount) {
+		this.amount = PaidAmount;
 	}
 
-	public Amount calculateTotalCost(Sale paidSale) {
+	public Amount calculateTotalCost(Sale paidSale, CashPayment moneyPaid) {
 		return null;
 	}
 
