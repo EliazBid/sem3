@@ -16,8 +16,10 @@ public class ExternalAccountingSystem {
     	/** 
      	 * Updates the information found in the accounting system.
      	 * Never actually used in seminar 3 but would be used in a real system.
+	 *
+	 * @param sale The sale that will be used to update the inventory system.
      	 */
-   	public void updateAccountingSystem() {
+   	public void updateAccountingSystem(Sale sale) {
         
     }
 
