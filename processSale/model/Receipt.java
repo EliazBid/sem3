@@ -16,7 +16,9 @@ public class Receipt {
 	private Amount change;
 
 	public Receipt() {
-
+		/**
+		 * Constructor that makes a receipt with the given sale information.
+		 */
 	}
 	public Receipt(Sale sale) {
 		this.timeOfSale = sale.getTimeOfSale();
