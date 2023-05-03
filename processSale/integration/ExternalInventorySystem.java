@@ -5,8 +5,8 @@ import java.util.ArrayList;
 
 public class ExternalInventorySystem {
 
-	ExternalInventorySystem ExternalInventorySystem() {
-		return null;
+	public ExternalInventorySystem() {
+		ArrayList<ItemDTO> inventory = createInventory();
 	}
 
 	public ItemDTO findItem(ItemDTO searchedItem) {
@@ -34,6 +34,8 @@ public class ExternalInventorySystem {
 		inventory.add(new ItemDTO(10, 1, new Amount(100), "Pepper", "A bag of pepper", 12));
 		return inventory;
 	}
+	
+	
 	
 
 
