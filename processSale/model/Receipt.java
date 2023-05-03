@@ -1,19 +1,30 @@
 package processSale.model;
 
+import java.time.LocalTime;
+
 import processSale.integration.ItemDTO;
+import java.util.ArrayList;
 
 public class Receipt {
 
-	private int timeOfSale;
+	private LocalTime timeOfSale;
 
-	private ItemDTO itemList;
+	private ArrayList<ItemDTO> itemList;
 
 	private Amount runningTotal;
 
 	private Amount change;
 
 	public Receipt() {
-
+		/**
+		 * Constructor that makes a receipt with the given sale information.
+		 */
+	}
+	public Receipt(Sale sale) {
+		this.timeOfSale = sale.getTimeOfSale();
+		this.itemList = sale.getItemList();
+		this.runningTotal = sale.getRunningTotal();
+		this.change = sale.getChange();
 	}
 
 	/**

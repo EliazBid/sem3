@@ -21,7 +21,7 @@ public class ExternalAccountingSystem {
 	 *
 	 * @param sale The sale that will be used to update the inventory system.
      	 */
-   	public void updateAccountingSystem(Sale sale) {
+   	public void updateAccountingSystem() {
         
     }
 

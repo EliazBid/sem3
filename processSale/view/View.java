@@ -13,5 +13,6 @@ public class View {
 	public void runProgram(){
 		contr.startSale();
 		System.out.println("New sale started!");
+		contr.enterAmountPaid(amount);
 	}
 }

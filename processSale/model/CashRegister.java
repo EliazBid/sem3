@@ -15,7 +15,7 @@ public class CashRegister {
 	 * @param toPay The money give by the shopper 
 	 */
 	public void addMoney(CashPayment toPay) {
-
+		
 	}
 
 }

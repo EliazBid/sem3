@@ -3,6 +3,8 @@ package processSale.model;
 import java.util.ArrayList;
 import java.time.LocalTime;
 import processSale.integration.ItemDTO;
+import processSale.model.CashPayment;
+import processSale.integration.Printer;
 
 public class Sale {
 
@@ -16,6 +18,9 @@ public class Sale {
 
 	private Receipt receipt;
 
+	private CashPayment moneyPaid;
+
+	
 	/**
 	 * Creates a new instance of a sale. The time of the sale is set to the current time. A new receipt is created.
 	 */
@@ -50,12 +55,16 @@ public class Sale {
 		return runningTotal;
 	}
 
+	public LocalTime getTimeOfSale() {
+		return saleTime;
+	}
+
 	public Amount getChange() {
 		return null;
 	}
 
-	public ItemDTO getItemList() {
-		return null;
+	public ArrayList<ItemDTO> getItemList() {
+		return itemList;
 	}
 	
 	public Amount applyDiscountToRunningTotal(Discount discount) {
@@ -68,13 +77,26 @@ public class Sale {
 			itemList.get(index).increaseQuantity();
 		}
 	}
-
-	public void pay(CashPayment toPay) {
-
+	/**
+	 * Calls method to calculate total cost and saves the cashpayment.
+	 * @param toPay money given by customer
+	 * @param sale current sale
+	 */
+	public void pay(CashPayment toPay, Sale sale) {
+		this.moneyPaid = toPay;
+		toPay.calculateTotalCost(sale,moneyPaid);
+		
 	}
-
-	public Receipt getReceipt() {
-		return null;
+	/**
+	 * Creates a finalized receipt, prints it, and returns the receipt.
+	 * @param sale current sale reference
+	 * @param printer printer reference
+	 * @return The finalalized receipt
+	 */
+	public Receipt getReceipt(Sale sale, Printer printer) {
+		Receipt finalReceipt = new Receipt(sale);
+		printer.printReceipt(finalReceipt);
+		return finalReceipt;
 	}
 
 }

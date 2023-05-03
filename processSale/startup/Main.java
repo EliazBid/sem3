@@ -4,7 +4,7 @@ import processSale.controller.Controller;
 import processSale.view.View;
 import processSale.integration.RegistryCreator;
 import processSale.integration.Printer;
-import processSale.java.lang.String;
+import java.lang.String;
 
 public class Main {
 	public static void main(String[] args) {

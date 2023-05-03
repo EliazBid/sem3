@@ -34,6 +34,8 @@ public class Controller {
 	private Discount discount;
 
 	private RegistryCreator creator;
+
+	private Amount change;
 	
 	/**
      	* Creates an instance of the controller where the references to externals systems are saved.
@@ -66,9 +68,25 @@ public class Controller {
 		Amount runningTotal = sale.getRunningTotal();
 		System.out.println("The total price is: " + runningTotal);
 	}
-
+	/**
+	 * Handles money given by customer to calculate total cost and change, updates external systems and cash register, and prints a finalized receipt.
+	 * @param paidAmount Money given by customer
+	 */
 	public void enterAmountPaid(Amount paidAmount) {
-
+		
+		CashPayment toPay = new CashPayment(paidAmount);
+		sale.pay(toPay,sale);
+		updateExternals();
+		cashRegister.addMoney(toPay);
+		receipt = sale.getReceipt(sale,printer);
+		change = sale.getChange();
+	}
+	/**
+	 * Updates external systems
+	 */
+	public void updateExternals(){
+		externalAccountingSystem.updateAccountingSystem();
+		externalInventorySystem.updateInventory();
 	}
 
 }
