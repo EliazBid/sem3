@@ -22,9 +22,10 @@ public class ItemDTO {
 	 * @param quantity The quantity of the item.
 	 * @param price The price of the item.
 	 * @param name The name of the item.
-	 * @param validIdentifier True if the identifier is valid, false if not.
+	 * @param description The description of the item.
+	 * @param vatRate The vat rate of the item.
 	 */
-	public ItemDTO(int itemIdentifier, int quantity, Amount price, String name, boolean validIdentifier) {
+	public ItemDTO(int itemIdentifier, int quantity, Amount price, String name, String description, int vatRate) {
 		
 	}
 
