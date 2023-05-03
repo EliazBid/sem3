@@ -34,11 +34,19 @@ public class Controller {
 	private Discount discount;
 
 	private RegistryCreator creator;
-
-	public Controller(RegistryCreator creator, Printer printer) {
-		this.creator = creator;
-		this.printer = printer;
-	}
+	
+	/**
+     	* Creates an instance of the controller where the references to externals systems are saved.
+	* @param creator The creator of the external systems.
+     	* @param printer The printer that will print the receipt.
+     	*/
+   	public Controller(RegistryCreator creator, Printer printer) {
+        	this.externalAccountingSystem = creator.getExternalAccountingSystem();
+		this.externalInventorySystem = creator.getExternalInventorySystem();
+		this.discountDataBase = creator.getDiscountDataBase();
+       		this.cashRegister = new CashRegister();
+        	this.printer = printer;
+    	}
 
 	public void startSale() {
 		sale = new Sale();
