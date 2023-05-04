@@ -6,7 +6,7 @@ import processSale.model.Amount;
 public class View {
 
 	private Controller contr;
-	private Amount amount = new Amount(160); // amount is the money given by the customer
+	private Amount amount = new Amount(200); // amount is the money given by the customer
 
 	/**
 	 * Creates a new instance.
@@ -18,6 +18,8 @@ public class View {
 
 	/**
 	 * Simulates a user input that generates calls to all system operations.
+	 * scanItem() is called 5 times to simulate 5 items being scanned.
+	 * Numbers 1-10 are used to simulate item identifiers.
 	 */
 	public void runProgram(){
 		contr.startSale();
