@@ -81,8 +81,9 @@ public class Controller {
 		sale.pay(toPay,sale);
 		updateExternals();
 		cashRegister.addMoney(toPay);
+		sale.calculateChange(paidAmount);
 		receipt = sale.getReceipt(sale,printer);
-		change = sale.getChange();
+		
 	}
 
 	/**

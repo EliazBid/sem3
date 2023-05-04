@@ -17,9 +17,9 @@ public class View {
 		System.out.println("New sale started!\n");
 		contr.scanItem(1);
 		contr.scanItem(2);
-		contr.scanItem(1);
-		contr.scanItem(2);
+		contr.scanItem(3);
+		contr.scanItem(4);
 		contr.endSale();
-		contr.enterAmountPaid(amount);
+		contr.enterAmountPaid(new Amount(160));
 	}
 }

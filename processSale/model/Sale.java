@@ -34,6 +34,16 @@ public class Sale {
 	private void setTimeOfSale() {
 		saleTime = LocalTime.now();
 	}
+
+	public void setChange(Amount change) {
+		this.change = change;
+	}
+
+	public void calculateChange(Amount paidAmount){
+		change = paidAmount;
+		change.subtract(runningTotal);
+	}
+
 	/**
 	 * Adds an item to the sale. If the item is already in the sale, the quantity is increased by one.
 	 * @param itemDTO	The item to be added to the sale.
@@ -72,7 +82,7 @@ public class Sale {
 	}
 
 	public Amount getChange() {
-		return null;
+		return change;
 	}
 
 	public ArrayList<ItemDTO> getItemList() {
