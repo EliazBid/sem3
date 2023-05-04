@@ -30,12 +30,6 @@ public class Controller {
 	private CashPayment cashPayment;
 
 	private Printer printer;
-
-	private Discount discount;
-
-	private RegistryCreator creator;
-
-	private Amount change;
 	
 	/**
      * Creates an instance of the controller where the references to externals systems are saved.
@@ -82,7 +76,12 @@ public class Controller {
 		updateExternals();
 		cashRegister.addMoney(toPay);
 		sale.calculateChange(paidAmount);
-		receipt = sale.getReceipt(sale,printer);
+		if (sale.getChange().getAmountInDouble() < 0) {
+			System.out.println("The customer has not paid enough money.");
+		}
+		else {
+			receipt = sale.getReceipt(sale,printer);;
+		} 
 		
 	}
 
