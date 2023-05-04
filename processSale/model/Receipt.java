@@ -37,16 +37,6 @@ public class Receipt {
 	}
 
 	/**
-	 * Adds the sale information to the receipt.
-	 * @param sale The sale that is to be added to the receipt.
-	 */
-	public void addToReceipt(Sale sale) {
-		this.itemList = sale.getItemList();
-		this.runningTotal = sale.getRunningTotal();
-		this.change = sale.getChange();
-	}
-
-	/**
 	 * Returns the time of the sale.
 	 */
 	public LocalTime getTimeOfSale() {

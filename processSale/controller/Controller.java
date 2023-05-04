@@ -2,7 +2,6 @@ package processSale.controller;
 
 import processSale.model.Sale;
 import processSale.integration.ExternalAccountingSystem;
-import processSale.integration.DiscountDataBase;
 import processSale.integration.ExternalInventorySystem;
 import processSale.model.CashRegister;
 import processSale.model.Receipt;
@@ -17,8 +16,6 @@ public class Controller {
 	private Sale sale;
 
 	private ExternalAccountingSystem externalAccountingSystem;
-
-	private DiscountDataBase discountDataBase;
 
 	private ExternalInventorySystem externalInventorySystem;
 
@@ -36,7 +33,6 @@ public class Controller {
    	public Controller(RegistryCreator creator, Printer printer) {
         this.externalAccountingSystem = creator.getExternalAccountingSystem();
 		this.externalInventorySystem = creator.getExternalInventorySystem();
-		this.discountDataBase = creator.getDiscountDataBase();
        	this.cashRegister = new CashRegister();
         this.printer = printer;
     }
@@ -89,14 +85,13 @@ public class Controller {
 	 */
 	public void printReceipt() {
 		printer.printReceipt(receipt);
-		//System.out.println("The change is: " + change);
 	}
 
 	/**
 	 * Updates external systems
 	 */
 	public void updateExternals(){
-		externalAccountingSystem.updateAccountingSystem();
+		externalAccountingSystem.updateAccountingSystem(sale);
 		externalInventorySystem.updateInventory();
 	}
 
