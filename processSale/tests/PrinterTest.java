@@ -29,6 +29,11 @@ public class PrinterTest {
     
     Printer printerOutput = new Printer();
 
+    @Before
+    public void setUp() {
+        printerOutput = new Printer();
+    }
+
     @Test
     public void testPrintReceipt() {
         String expectedOutput = "Receipt";

@@ -85,14 +85,6 @@ public class Controller {
 	}
 
 	/**
-	 * Prints the receipt
-	 */
-	public void printReceipt() {
-		printer.printReceipt(receipt);
-		//System.out.println("The change is: " + change);
-	}
-
-	/**
 	 * Updates external systems
 	 */
 	public void updateExternals(){
