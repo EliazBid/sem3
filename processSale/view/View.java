@@ -19,6 +19,5 @@ public class View {
 		contr.scanItem(2);
 		contr.endSale();
 		contr.enterAmountPaid(amount);
-		contr.printReceipt();
 	}
 }

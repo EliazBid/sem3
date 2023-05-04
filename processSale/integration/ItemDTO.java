@@ -56,8 +56,5 @@ public class ItemDTO {
 		return this.name;
 	}
 
-	public boolean isIdentifierValid() {
-		return false;
-	}
 
 }

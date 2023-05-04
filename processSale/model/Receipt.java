@@ -37,4 +37,21 @@ public class Receipt {
 		this.change = sale.getChange();
 	}
 
+	public LocalTime getTimeOfSale() {
+		return this.timeOfSale;
+	}
+
+	public ArrayList<ItemDTO> getItemList() {
+		return this.itemList;
+	}
+
+	public Amount getRunningTotal() {
+		return this.runningTotal;
+	}
+
+	public Amount getChange() {
+		return this.change;
+	}
+
+	
 }

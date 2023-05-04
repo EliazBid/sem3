@@ -90,7 +90,7 @@ public class Controller {
 	 */
 	public void printReceipt() {
 		printer.printReceipt(receipt);
-		System.out.println("The change is: " + change);
+		//System.out.println("The change is: " + change);
 	}
 
 	/**

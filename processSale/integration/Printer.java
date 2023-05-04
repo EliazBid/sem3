@@ -18,7 +18,8 @@ public class Printer {
      	*/
 
 	public void printReceipt(Receipt receipt) {
-
+		System.out.println("The runningtotal is: " + receipt.getRunningTotal());
+		System.out.println("The change is: " + receipt.getChange());
 	}
 
 }
