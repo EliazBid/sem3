@@ -12,8 +12,6 @@ public class ItemDTO {
 
 	private String name;
 
-	private boolean validIdentifier;
-
 	private double vatRate;
 
 	/**

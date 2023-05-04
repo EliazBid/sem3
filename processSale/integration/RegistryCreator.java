@@ -5,8 +5,6 @@ public class RegistryCreator {
 	private ExternalAccountingSystem externalAccountingSystem;
 
     	private ExternalInventorySystem externalInventorySystem;
-
-    	private DiscountDataBase discountDataBase;
     
 	/**
 	 * Creates an instance of the registry creator.
@@ -14,7 +12,6 @@ public class RegistryCreator {
 	public RegistryCreator() {
 		this.externalAccountingSystem = new ExternalAccountingSystem();
 		this.externalInventorySystem = new ExternalInventorySystem();
-		this.discountDataBase = new DiscountDataBase();
 	}
     
 	/** 
@@ -30,12 +27,4 @@ public class RegistryCreator {
 	public ExternalInventorySystem getExternalInventorySystem() {
 		return this.externalInventorySystem;
 	}
-
-	/** 
-	 * Returns the discount database.
-	 */
-	public DiscountDataBase getDiscountDataBase() {
-		return this.discountDataBase;
-	}
-
 }

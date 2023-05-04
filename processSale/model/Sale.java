@@ -94,15 +94,6 @@ public class Sale {
 	public ArrayList<ItemDTO> getItemList() {
 		return itemList;
 	}
-	
-	/**
-	 * Applies a discount to the running total.
-	 * Never used in this program since alternative flow 3-4c is not to be implemented.
-	 * @param discount The discount to be applied.
-	 */
-	public Amount applyDiscountToRunningTotal(Discount discount) {
-		return null;
-	}
 
 	private void checkIfDuplicates(ItemDTO ItemDTO) {
 		if (itemList.contains(ItemDTO)) {
