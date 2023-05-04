@@ -26,7 +26,11 @@ public class ItemDTO {
 	 * @param vatRate The vat rate of the item.
 	 */
 	public ItemDTO(int itemIdentifier, int quantity, Amount price, String name, String description, int vatRate) {
-		
+		this.itemIdentifier = itemIdentifier;
+		this.quantity = quantity;
+		this.price = price;
+		this.name = name;
+		this.vatRate = vatRate;
 	}
 
 	/**
@@ -41,15 +45,15 @@ public class ItemDTO {
 	}
 
 	public int getQuantity() {
-		return 0;
+		return this.quantity;
 	}
 
 	public Amount getPrice() {
-		return null;
+		return this.price;
 	}
 
 	public String getName() {
-		return null;
+		return this.name;
 	}
 
 	public boolean isIdentifierValid() {

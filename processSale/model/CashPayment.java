@@ -12,13 +12,13 @@ public class CashPayment {
 		this.amount = PaidAmount;
 	}
 	/**
-	 * calculates total cost of the sale
-	 * @param paidSale 
+	 * calculates and returns total cost of the sale
+	 * @param paidSale the sale that includes the items
 	 * @param moneyPaid
 	 * @return
 	 */
-	public Amount calculateTotalCost(Sale paidSale, CashPayment moneyPaid) {
-		return null;
+	public Amount calculateTotalCost(Sale paidSale) {
+		return paidSale.getRunningTotal();
 	}
 
 }

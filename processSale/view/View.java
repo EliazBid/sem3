@@ -14,9 +14,11 @@ public class View {
 
 	public void runProgram(){
 		contr.startSale();
-		System.out.println("New sale started!");
-		contr.scanItem(5);
+		System.out.println("New sale started!\n");
+		contr.scanItem(1);
+		contr.scanItem(2);
 		contr.endSale();
 		contr.enterAmountPaid(amount);
+		contr.printReceipt();
 	}
 }

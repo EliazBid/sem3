@@ -10,11 +10,11 @@ public class Sale {
 
 	private LocalTime saleTime;
 
-	private Amount runningTotal;
+	private Amount runningTotal = new Amount(0);
 
 	private Amount change;
 
-	private ArrayList<ItemDTO> itemList;
+	private ArrayList<ItemDTO> itemList = new ArrayList<ItemDTO>();
 
 	private Receipt receipt;
 
@@ -40,16 +40,24 @@ public class Sale {
 	 */
 	public void addItem(ItemDTO itemDTO) {
 		checkIfDuplicates(itemDTO);
-		itemList.add(0, itemDTO);
+		if (!itemList.contains(itemDTO)){
+			itemList.add(0, itemDTO);
+			runningTotal.add(itemDTO.getPrice());
+		}
 	}
 
+	/**
+	 * Adds an item and its quantity to the sale. Used in the case of multiple items of the same type. 
+	 * Never actually used in the program since alternative flow 3-4c is not to be implemented.
+	 * @param quantity the multiple of the item
+	 * @param itemDTO  the item to be added
+	 */
 	public void addItem(int quantity, ItemDTO itemDTO) {
 
 	}
 
 	/**
 	 * Returns the running total of the sale.
-	 * 
 	 */
 	public Amount getRunningTotal() {
 		return runningTotal;
@@ -83,9 +91,7 @@ public class Sale {
 	 * @param sale current sale
 	 */
 	public void pay(CashPayment toPay, Sale sale) {
-		this.moneyPaid = toPay;
-		toPay.calculateTotalCost(sale,moneyPaid);
-		
+		toPay.calculateTotalCost(sale);
 	}
 	/**
 	 * Creates a finalized receipt, prints it, and returns the receipt.

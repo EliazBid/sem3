@@ -38,28 +38,31 @@ public class Controller {
 	private Amount change;
 	
 	/**
-     	* Creates an instance of the controller where the references to externals systems are saved.
-	* @param creator The creator of the external systems.
-     	* @param printer The printer that will print the receipt.
-     	*/
+     * Creates an instance of the controller where the references to externals systems are saved.
+	 * @param creator The creator of the external systems.
+     * @param printer The printer that will print the receipt.
+     */
    	public Controller(RegistryCreator creator, Printer printer) {
-        	this.externalAccountingSystem = creator.getExternalAccountingSystem();
+        this.externalAccountingSystem = creator.getExternalAccountingSystem();
 		this.externalInventorySystem = creator.getExternalInventorySystem();
 		this.discountDataBase = creator.getDiscountDataBase();
-       		this.cashRegister = new CashRegister();
-        	this.printer = printer;
-    	}
+       	this.cashRegister = new CashRegister();
+        this.printer = printer;
+    }
 
 	public void startSale() {
 		sale = new Sale();
 	}
 
-	//look in external inventory system for matching itemidentifier, if found, add ItemDTO to sale
+	/**
+	 * Adds and or increases the quantity of the item to the sale and prints the item information.
+	 * @param itemIdentifier The identifier of the item, e.g. barcode
+	 */
 	public void scanItem(int itemIdentifier) {	
 		ItemDTO foundItem = externalInventorySystem.findItem(itemIdentifier);
 		sale.addItem(foundItem);
+		System.out.println("Item information:\nItem name: " + foundItem.getName() + "\nItem price: " + foundItem.getPrice() + "\n");
 	}
-
 
 	/**
 	 * Ends the sale. The total price is calculated and returned.
@@ -81,6 +84,15 @@ public class Controller {
 		receipt = sale.getReceipt(sale,printer);
 		change = sale.getChange();
 	}
+
+	/**
+	 * Prints the receipt
+	 */
+	public void printReceipt() {
+		printer.printReceipt(receipt);
+		System.out.println("The change is: " + change);
+	}
+
 	/**
 	 * Updates external systems
 	 */
