@@ -1,4 +1,4 @@
-package processSale.integration;
+package processSale.tests;
 
 import org.junit.After;
 import org.junit.Test;
@@ -20,8 +20,6 @@ public class ItemDTOTest {
         ItemDTO testItem = new ItemDTO(1, 1, new Amount(10), "Milk", "A carton of milk", 1.12);
         testItem.increaseQuantity();
         assertTrue("Increased inaccurately", testItem.getQuantity() == reference.getQuantity()+1);
-        assertNotNull(testItem);
-        assertNotNull(reference);
 
     }
 
@@ -31,10 +29,8 @@ public class ItemDTOTest {
         Amount quantity = new Amount(3);
         Amount cost = new Amount(10);
         cost.multiply(quantity);
-        assertEquals(cost.getAmount(),testItem.getFinalPrice().getAmount(),0);
+        assertEquals("price is correct", cost.getAmount(),testItem.getFinalPrice().getAmount(),0);
 
     }
-
-
 
 }
