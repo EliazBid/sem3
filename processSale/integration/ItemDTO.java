@@ -41,7 +41,7 @@ public class ItemDTO {
 	}
 
 	public int getIdentifier() {
-		return itemIdentifier;
+		return this.itemIdentifier;
 	}
 
 	public int getQuantity() {
@@ -56,5 +56,11 @@ public class ItemDTO {
 		return this.name;
 	}
 
+	public Amount getFinalPrice() {
+		Amount quan = new Amount(quantity);
+		Amount priceOfItems = new Amount(price.getAmount());
+		priceOfItems.multiply(quan);
+		return priceOfItems;
+	}
 
 }

@@ -42,8 +42,8 @@ public class Sale {
 		checkIfDuplicates(itemDTO);
 		if (!itemList.contains(itemDTO)){
 			itemList.add(0, itemDTO);
-			runningTotal.add(itemDTO.getPrice());
 		}
+		runningTotal.add(itemDTO.getPrice());
 	}
 
 	/**
