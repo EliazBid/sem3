@@ -15,11 +15,11 @@ public class View {
 	public void runProgram(){
 		contr.startSale();
 		System.out.println("New sale started!\n");
-		contr.scanItem(1); // 1 is the item identifier
-		contr.scanItem(4); // 4 is the item identifier
-		contr.scanItem(2); // 2 is the item identifier
-		contr.scanItem(3); // 3 is the item identifier
-		contr.scanItem(4); // 4 is the item identifier
+		contr.scanItem(1); 
+		contr.scanItem(4); 
+		contr.scanItem(2); 
+		contr.scanItem(3); 
+		contr.scanItem(4); 
 		contr.endSale(); 
 		contr.enterAmountPaid(amount); 
 	}
