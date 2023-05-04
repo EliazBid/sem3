@@ -31,7 +31,7 @@ public class ItemDTOTest {
         Amount quantity = new Amount(3);
         Amount cost = new Amount(10);
         cost.multiply(quantity);
-        assertEquals(cost,testItem.getFinalPrice());
+        assertEquals(cost.getAmount(),testItem.getFinalPrice().getAmount(),0);
 
     }
 

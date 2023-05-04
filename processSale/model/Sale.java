@@ -13,7 +13,7 @@ public class Sale {
 
 	private Amount change;
 
-	private ArrayList<ItemDTO> itemList = new ArrayList<ItemDTO>();
+	private ArrayList<ItemDTO> itemList;
 
 	private Receipt receipt;
 
@@ -21,6 +21,7 @@ public class Sale {
 	 * Creates a new instance of a sale. The time of the sale is set to the current time. A new receipt is created.
 	 */
 	public Sale() {
+		itemList = new ArrayList<ItemDTO>();
 		setTimeOfSale();
 		receipt = new Receipt();
 	}
