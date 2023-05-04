@@ -11,16 +11,16 @@ public class RegistryCreator {
 	/**
 	 * Creates an instance of the registry creator.
 	*/
-    	public RegistryCreator() {
-        	this.externalAccountingSystem = new ExternalAccountingSystem();
+	public RegistryCreator() {
+		this.externalAccountingSystem = new ExternalAccountingSystem();
 		this.externalInventorySystem = new ExternalInventorySystem();
 		this.discountDataBase = new DiscountDataBase();
-    	}
+	}
     
 	/** 
 	 * Returns the external accounting system.
 	 */
-    	public ExternalAccountingSystem getExternalAccountingSystem() {
+	public ExternalAccountingSystem getExternalAccountingSystem() {
 		return this.externalAccountingSystem;
 	}
 
