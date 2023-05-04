@@ -19,7 +19,8 @@ public class ItemDTOTest {
         ItemDTO reference = new ItemDTO(1, 1, new Amount(10), "Milk", "A carton of milk", 1.12);
         ItemDTO testItem = new ItemDTO(1, 1, new Amount(10), "Milk", "A carton of milk", 1.12);
         testItem.increaseQuantity();
-        assertNotEquals(reference.getQuantity(),testItem.getQuantity());
+        assertTrue("Did not increase quantity", reference.getQuantity() < testItem.getQuantity());
+        assertTrue("Increased inaccurately", testItem.getQuantity() < reference.getQuantity()+2);
         assertNotNull(testItem);
         assertNotNull(reference);
 
