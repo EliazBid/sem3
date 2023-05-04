@@ -6,7 +6,7 @@ import processSale.model.Amount;
 public class View {
 
 	private Controller contr;
-	private Amount amount = new Amount(100000000); // amount is the money given by the customer
+	private Amount amount = new Amount(200); // amount is the money given by the customer
 
 	/**
 	 * Creates a new instance.
