@@ -59,7 +59,7 @@ public class Controller {
 	 */
 	public void endSale() {
 		Amount runningTotal = sale.getRunningTotal();
-		System.out.println("The total price is: " + String.format("%.2f", runningTotal.getAmountInDouble()));
+		System.out.println("The total price is: " + String.format("%.2f", runningTotal.getAmount()));
 	}
 	/**
 	 * Handles money given by customer to calculate total cost and change, updates external systems and cash register, and prints a finalized receipt if the customer has paid enough money.
@@ -71,7 +71,7 @@ public class Controller {
 		updateExternals();
 		cashRegister.addMoney(toPay);
 		sale.calculateChange(paidAmount);
-		if (sale.getChange().getAmountInDouble() < 0) {
+		if (sale.getChange().getAmount() < 0) {
 			System.out.println("The customer has not paid enough money.");
 		}
 		else {
