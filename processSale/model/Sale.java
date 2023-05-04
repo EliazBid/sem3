@@ -3,7 +3,6 @@ package processSale.model;
 import java.util.ArrayList;
 import java.time.LocalTime;
 import processSale.integration.ItemDTO;
-import processSale.model.CashPayment;
 import processSale.integration.Printer;
 
 public class Sale {
@@ -18,9 +17,6 @@ public class Sale {
 
 	private Receipt receipt;
 
-	private CashPayment moneyPaid;
-
-	
 	/**
 	 * Creates a new instance of a sale. The time of the sale is set to the current time. A new receipt is created.
 	 */
@@ -35,17 +31,18 @@ public class Sale {
 		saleTime = LocalTime.now();
 	}
 
-	public void setChange(Amount change) {
-		this.change = change;
-	}
 
+	/**
+	 * Calculates the change to be given to the customer.
+	 * @param paidAmount The amount of money given by the customer.
+	 */
 	public void calculateChange(Amount paidAmount){
 		change = paidAmount;
 		change.subtract(runningTotal);
 	}
 
 	/**
-	 * Adds an item to the sale. If the item is already in the sale, the quantity is increased by one.
+	 * Adds an item to the sale. If the item is already in the sale, the quantity of the item is increased by one.
 	 * @param itemDTO	The item to be added to the sale.
 	 */
 	public void addItem(ItemDTO itemDTO) {
@@ -55,9 +52,9 @@ public class Sale {
 		}
 		double vat = itemDTO.getVAT();
 		Amount price = itemDTO.getPrice();
-		Amount vatAmount = new Amount(price.getAmount() * vat);
+		Amount priceWithVat = new Amount(price.getAmount() * vat);
 
-		runningTotal.add(vatAmount);
+		runningTotal.add(priceWithVat);
 	}
 
 	/**
@@ -77,18 +74,32 @@ public class Sale {
 		return runningTotal;
 	}
 
+	/**
+	 * Returns the time of the sale.
+	 */
 	public LocalTime getTimeOfSale() {
 		return saleTime;
 	}
 
+	/**
+	 * Returns the change to be given to the customer.
+	 */
 	public Amount getChange() {
 		return change;
 	}
 
+	/**
+	 * Returns the list of items in the sale.
+	 */
 	public ArrayList<ItemDTO> getItemList() {
 		return itemList;
 	}
 	
+	/**
+	 * Applies a discount to the running total.
+	 * Never used in this program since alternative flow 3-4c is not to be implemented.
+	 * @param discount The discount to be applied.
+	 */
 	public Amount applyDiscountToRunningTotal(Discount discount) {
 		return null;
 	}
@@ -99,6 +110,7 @@ public class Sale {
 			itemList.get(index).increaseQuantity();
 		}
 	}
+
 	/**
 	 * Calls method to calculate total cost and saves the cashpayment.
 	 * @param toPay money given by customer
@@ -107,6 +119,7 @@ public class Sale {
 	public void pay(CashPayment toPay, Sale sale) {
 		toPay.calculateTotalCost(sale);
 	}
+	
 	/**
 	 * Creates a finalized receipt, prints it, and returns the receipt.
 	 * @param sale current sale reference

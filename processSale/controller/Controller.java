@@ -10,7 +10,6 @@ import processSale.model.CashPayment;
 import processSale.integration.Printer;
 import processSale.integration.RegistryCreator;
 import processSale.integration.ItemDTO;
-import processSale.model.Discount;
 import processSale.model.Amount;
 
 public class Controller {
@@ -27,8 +26,6 @@ public class Controller {
 
 	private Receipt receipt;
 
-	private CashPayment cashPayment;
-
 	private Printer printer;
 	
 	/**
@@ -44,6 +41,9 @@ public class Controller {
         this.printer = printer;
     }
 
+	/**
+	 * Starts a new sale.
+	 */
 	public void startSale() {
 		sale = new Sale();
 	}
@@ -66,11 +66,10 @@ public class Controller {
 		System.out.println("The total price is: " + String.format("%.2f", runningTotal.getAmountInDouble()));
 	}
 	/**
-	 * Handles money given by customer to calculate total cost and change, updates external systems and cash register, and prints a finalized receipt.
+	 * Handles money given by customer to calculate total cost and change, updates external systems and cash register, and prints a finalized receipt if the customer has paid enough money.
 	 * @param paidAmount Money given by customer
 	 */
 	public void enterAmountPaid(Amount paidAmount) {
-		
 		CashPayment toPay = new CashPayment(paidAmount);
 		sale.pay(toPay,sale);
 		updateExternals();

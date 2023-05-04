@@ -11,6 +11,7 @@ public class CashPayment {
 	public CashPayment (Amount PaidAmount) {
 		this.amount = PaidAmount;
 	}
+	
 	/**
 	 * calculates and returns total cost of the sale
 	 * @param paidSale the sale that includes the items

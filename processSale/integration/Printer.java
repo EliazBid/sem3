@@ -5,18 +5,16 @@ import processSale.model.Receipt;
 public class Printer {
 
 	/**
-     	* Creates an instance of the printer.
-     	*/
-    	public Printer() {
+    * Creates an instance of the printer.
+ 	*/
+    public Printer() {
         
-    	}
+	}
 
-    	/**
-     	* Prints the receipt.
-	*
-     	* @param receipt The receipt to be printed.
-     	*/
-
+    /**
+     * Prints the receipt into the terminal.
+     * @param receipt The receipt to be printed.
+ 	 */
 	public void printReceipt(Receipt receipt) {
 		System.out.println("===========================");
 		System.out.println("Reciept:");

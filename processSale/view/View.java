@@ -6,12 +6,19 @@ import processSale.model.Amount;
 public class View {
 
 	private Controller contr;
-	private Amount amount = new Amount(160); // 100 is the amount paid by the customer
+	private Amount amount = new Amount(160); // amount is the money given by the customer
 
+	/**
+	 * Creates a new instance.
+	 * @param contr The controller that is used for all operations.
+	 */
 	public View(Controller contr) {
 		this.contr = contr;
 	}
 
+	/**
+	 * Simulates a user input that generates calls to all system operations.
+	 */
 	public void runProgram(){
 		contr.startSale();
 		System.out.println("New sale started!\n");

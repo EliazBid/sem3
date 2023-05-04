@@ -40,26 +40,44 @@ public class ItemDTO {
 		quantity++;
 	}
 
+	/**
+	 * Checks if the item is valid.
+	 */
 	public int getIdentifier() {
 		return this.itemIdentifier;
 	}
 
+	/**
+	 * Returns the quantity of the item.
+	 */
 	public int getQuantity() {
 		return this.quantity;
 	}
 
+	/**
+	 * Returns the price of the item.
+	 */
 	public Amount getPrice() {
 		return this.price;
 	}
 
+	/**
+	 * Returns the name of the item.
+	 */
 	public String getName() {
 		return this.name;
 	}
 
+	/**
+	 * Returns the vat rate of the item.
+	 */
 	public double getVAT() {
 		return this.vatRate;
 	}
 
+	/**
+	 * Returns the price for the item multiplied with its quantity.
+	 */
 	public Amount getFinalPrice() {
 		Amount quan = new Amount(quantity);
 		Amount priceOfItems = new Amount(price.getAmount());

@@ -7,6 +7,9 @@ public class ExternalInventorySystem {
 
 	private ArrayList<ItemDTO> inventory;
 
+	/**
+	 * Creates an instance of an external inventory system.
+	 */
 	public ExternalInventorySystem() {
 		this.inventory = createInventory();
 	}
@@ -24,8 +27,10 @@ public class ExternalInventorySystem {
 		return null;
 	}
 
-
-
+	/**
+	 * Updates the inventory.
+	 * Unknown how the inventory updates, thus empty.
+	 */
 	public void updateInventory() {
 
 	}
@@ -47,11 +52,4 @@ public class ExternalInventorySystem {
 		inventory.add(new ItemDTO(10, 1, new Amount(100), "Pepper", "A bag of pepper", 1.25));
 		return inventory;
 	}
-	
-	
-	
-
-
-
-	
 }

@@ -61,7 +61,10 @@ public class Amount {
         return this.amount == amount.amount;
     }
 
+    /**
+     * Returns the current amount as a double.
+     */
     public double getAmountInDouble() {
-        return amount;
+        return this.amount;
     }
 }
