@@ -80,7 +80,7 @@ public class Controller {
 			System.out.println("The customer has not paid enough money.");
 		}
 		else {
-			receipt = sale.getReceipt(sale,printer);;
+			receipt = sale.getReceipt(sale,printer);
 		} 
 		
 	}
