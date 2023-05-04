@@ -69,7 +69,7 @@ public class Controller {
 	 */
 	public void endSale() {
 		Amount runningTotal = sale.getRunningTotal();
-		System.out.println("The total price is: " + runningTotal);
+		System.out.println("The total price is: " + String.format("%.2f", runningTotal.getAmountInDouble()));
 	}
 	/**
 	 * Handles money given by customer to calculate total cost and change, updates external systems and cash register, and prints a finalized receipt.

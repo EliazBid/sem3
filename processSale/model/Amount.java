@@ -60,4 +60,8 @@ public class Amount {
     public boolean equals(Amount amount) {
         return this.amount == amount.amount;
     }
+
+    public double getAmountInDouble() {
+        return amount;
+    }
 }
