@@ -43,7 +43,11 @@ public class Sale {
 		if (!itemList.contains(itemDTO)){
 			itemList.add(0, itemDTO);
 		}
-		runningTotal.add(itemDTO.getPrice());
+		double vat = itemDTO.getVAT();
+		Amount price = itemDTO.getPrice();
+		Amount vatAmount = new Amount(price.getAmount() * vat);
+
+		runningTotal.add(vatAmount);
 	}
 
 	/**

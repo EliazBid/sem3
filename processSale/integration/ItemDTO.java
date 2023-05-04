@@ -14,7 +14,7 @@ public class ItemDTO {
 
 	private boolean validIdentifier;
 
-	private int vatRate;
+	private double vatRate;
 
 	/**
 	 * Creates an instance of an item.
@@ -25,7 +25,7 @@ public class ItemDTO {
 	 * @param description The description of the item.
 	 * @param vatRate The vat rate of the item.
 	 */
-	public ItemDTO(int itemIdentifier, int quantity, Amount price, String name, String description, int vatRate) {
+	public ItemDTO(int itemIdentifier, int quantity, Amount price, String name, String description, double vatRate) {
 		this.itemIdentifier = itemIdentifier;
 		this.quantity = quantity;
 		this.price = price;
@@ -54,6 +54,10 @@ public class ItemDTO {
 
 	public String getName() {
 		return this.name;
+	}
+
+	public double getVAT() {
+		return this.vatRate;
 	}
 
 	public Amount getFinalPrice() {
